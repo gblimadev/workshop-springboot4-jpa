@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Profile;
 
 import com.educandoweb.course.entities.Cartegory;
 import com.educandoweb.course.entities.Order;
+import com.educandoweb.course.entities.Product;
 import com.educandoweb.course.entities.User;
 import com.educandoweb.course.entities.enums.OrderStatus;
 import com.educandoweb.course.repositories.CartegoryRepository;
 import com.educandoweb.course.repositories.OrderRepository;
+import com.educandoweb.course.repositories.ProductRepository;
 import com.educandoweb.course.repositories.UserRepository;
 
 @Configuration
@@ -29,6 +31,9 @@ public class TestConfig implements CommandLineRunner{
 	@Autowired
 	private CartegoryRepository cartegoryRepository;
 	
+	@Autowired
+	private ProductRepository productRepository;
+	
 	@Override
 	public void run(String... args) throws Exception {
 		
@@ -41,9 +46,13 @@ public class TestConfig implements CommandLineRunner{
 		Cartegory c1 = new Cartegory(null, "Eletronics");
 		Cartegory c2 = new Cartegory(null, "Books");
 		
+		Product p1 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
+		Product p2 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
+		
 		userRepository.saveAll(Arrays.asList(u1, u2));
 		orderRepository.saveAll(Arrays.asList(o1, o2));
 		cartegoryRepository.saveAll(Arrays.asList(c1, c2));
+		productRepository.saveAll(Arrays.asList(p1, p2));
 		
 	}
 } 

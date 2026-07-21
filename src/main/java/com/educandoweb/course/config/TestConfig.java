@@ -49,10 +49,14 @@ public class TestConfig implements CommandLineRunner{
 		Product p1 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
 		Product p2 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
 		
+		p1.getCartegories().add(c1);
+		p2.getCartegories().add(c1);
+		
 		userRepository.saveAll(Arrays.asList(u1, u2));
 		orderRepository.saveAll(Arrays.asList(o1, o2));
 		cartegoryRepository.saveAll(Arrays.asList(c1, c2));
 		productRepository.saveAll(Arrays.asList(p1, p2));
+		
 		
 	}
 } 
